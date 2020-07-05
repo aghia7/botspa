@@ -66,7 +66,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Schedule-SPA:build"
+            "browserTarget": "Schedule-SPA:build",
+            "port": 4200
           },
           "configurations": {
             "production": {
