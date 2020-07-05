@@ -1,0 +1,31 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Categories <button (click)="createCategory()" class="btn btn-outline-info">Create category</button> </h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name (ru)</th>
+            <th>Name (kz)</th>
+            <th>Name (en)</th>
+            <th>Parent Name (ru)</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of categories | async">
+            <td>{{category.nameRus}}</td>
+            <td>{{category.nameKaz}}</td>
+            <td>{{category.nameEng}}</td>
+            <td>{{category.parentCategoryNameRus}}</td>
+            <td>
+                <button (click)="categoryDetails(category.id)" class="btn btn-outline-info"><i class="fa fa-info"></i></button> 
+                <button (click)="updateCategory(category.id)" class="btn btn-outline-secondary ml-2"><i class="fa fa-pencil-square-o"></i></button> 
+                <button (click)="deleteCategory(category.id)" class="btn btn-outline-danger ml-2"><i class="fa fa-times"></i></button> 
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

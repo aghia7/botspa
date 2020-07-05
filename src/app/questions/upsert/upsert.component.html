@@ -1,0 +1,45 @@
+<h3>{{action}} Question</h3>
+<div>
+  <form *ngIf="ready" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nameRus">Question (ru)</label>
+      <input type="text" class="form-control" id="nameRus" required [(ngModel)]="question.questionRus" name="nameRus">
+    </div>
+
+    <div class="form-group">
+      <label for="nameKaz">Question (kz)</label>
+      <input type="text" class="form-control" id="nameKaz" required [(ngModel)]="question.questionKaz" name="nameKaz">
+    </div>
+
+    <div class="form-group">
+      <label for="nameEng">Question (en)</label>
+      <input type="text" class="form-control" id="nameEng" required [(ngModel)]="question.questionEng" name="nameEng">
+    </div>
+
+    <div class="form-group">
+        <label for="answerRus">Answer (ru)</label>
+        <input type="text" class="form-control" id="answerRus" required [(ngModel)]="question.answerRus" name="answerRus">
+      </div>
+  
+      <div class="form-group">
+        <label for="answerKaz">Answer (kz)</label>
+        <input type="text" class="form-control" id="answerKaz" required [(ngModel)]="question.answerKaz" name="answerKaz">
+      </div>
+  
+      <div class="form-group">
+        <label for="answerEng">Answer (en)</label>
+        <input type="text" class="form-control" id="answerEng" required [(ngModel)]="question.answerEng" name="answerEng">
+      </div>
+
+    <div class="form-group">
+      <label for="parentCategory">Category Name (ru)</label>
+      <select class="form-control" id="parentCategory" name="parentCategory" [(ngModel)]="question.categoryId">
+        <option [selected]="!question.categoryId" [value]="null">Не выбрано</option>
+        <option *ngFor="let cat of categories | async" [value]="cat.id" [selected]="question.categoryId && cat.id == question.categoryId">{{cat.nameRus}}</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button> 
+    <button (click)="gotoList()" class="btn btn-primary ml-2">Back to Category List</button><br>
+  </form>
+</div>

@@ -1,0 +1,78 @@
+<header>
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+  >
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/']">
+        <img
+          src="assets/img/faq.png"
+          alt=""
+          width="27"
+          height="27"
+        />
+        FAQ Control Panel
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded"
+        (click)="toggle()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="navbar-collapse collapse d-sm-inline-flex flex-sm-row"
+        [ngClass]="{ show: isExpanded }"
+      >
+        <ul class="navbar-nav mr-auto flex-grow">
+          <li
+            class="nav-item"
+            [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']" *ngIf="loggedIn()">
+            <a class="nav-link text-dark" [routerLink]="['/categories']">Categories</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']" *ngIf="loggedIn()">
+            <a class="nav-link text-dark" [routerLink]="['/questions']">Questions</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto" *ngIf="loggedIn()">
+          <li
+            class="nav-item dropdown"
+            [routerLinkActive]="['active']"
+            dropdown
+          >
+            <a class="nav-link text-dark dropdown-toggle" dropdownToggle>
+              Hello {{ authService.decodedToken.sub | titlecase }}
+            </a>
+            <div class="dropdown-menu mt-3" *dropdownMenu>
+              <a class="dropdown-item" href="#" [routerLink]="['/user-profile']"
+                ><i class="fa fa-user"> </i>Edit Profile</a
+              >
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" (click)="logout()" title="Logout"
+                ><i class="fa fa-sign-out"> </i>Logout</a
+              >
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav" *ngIf="!loggedIn()">
+          <li class="nav-item">
+            <a
+              class="nav-link text-dark"
+              [routerLink]="['/login']"
+              title="Login"
+              >Login</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

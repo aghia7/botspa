@@ -1,0 +1,30 @@
+<h2>Question Details</h2> 
+
+<hr/>
+<div *ngIf="question">
+  <div>
+    <label><b>Question (ru): </b></label> {{question.questionRus}}
+  </div>
+  <div>
+    <label><b>Question (kz): </b></label> {{question.questionKaz}}
+  </div>
+  <div>
+    <label><b>Question (en): </b></label> {{question.questionEng}}
+  </div> 
+  <div>
+    <label><b>Answer (ru): </b></label> {{question.answerRus}}
+  </div> 
+  <div>
+    <label><b>Answer (kz): </b></label> {{question.answerKaz}}
+  </div> 
+  <div>
+    <label><b>Answer (en): </b></label> {{question.answerEng}}
+  </div> 
+  <div>
+    <label><b>Category Name (ru): </b></label> {{question.categoryNameRus}}
+  </div>  
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Question List</button><br>

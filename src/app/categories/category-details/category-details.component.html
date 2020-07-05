@@ -1,0 +1,21 @@
+<h2>Category Details</h2> 
+
+<hr/>
+<div *ngIf="category">
+  <div>
+    <label><b>Name (ru): </b></label> {{category.nameRus}}
+  </div>
+  <div>
+    <label><b>Name (kz): </b></label> {{category.nameKaz}}
+  </div>
+  <div>
+    <label><b>Name (en): </b></label> {{category.nameEng}}
+  </div>  
+  <div>
+    <label><b>Parent Name (ru): </b></label> {{category.parentCategoryNameRus}}
+  </div>  
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Category List</button><br>

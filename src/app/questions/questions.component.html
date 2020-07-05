@@ -1,0 +1,37 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Questions <button (click)="createQuestion()" class="btn btn-outline-info">Create question</button> </h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Question (ru)</th>
+            <th>Question (kz)</th>
+            <!-- <th>Question (en)</th> -->
+            <!-- <th>Answer (ru)</th>
+            <th>Answer (kz)</th>
+            <th>Answer (en)</th> -->
+            <th>Category Name (ru)</th>
+            <th style="width:15%">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let question of questions | async">
+            <td>{{question.questionRus}}</td>
+            <td>{{question.questionKaz}}</td>
+            <!-- <td>{{question.questionEng}}</td> -->
+            <!-- <td>{{question.answerRus}}</td>
+            <td>{{question.answerKaz}}</td>
+            <td>{{question.answerEng}}</td> -->
+            <td>{{question.categoryNameRus}}</td>
+            <td>
+                <button (click)="questionDetails(question.id)" class="btn btn-outline-info"><i class="fa fa-info"></i></button> 
+                <button (click)="updateQuestion(question.id)" class="btn btn-outline-secondary ml-2"><i class="fa fa-pencil-square-o"></i></button> 
+                <button (click)="deleteQuestion(question.id)" class="btn btn-outline-danger ml-2"><i class="fa fa-times"></i></button> 
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
