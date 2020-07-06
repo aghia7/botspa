@@ -50,8 +50,8 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter,
-        whitelistedDomains: ['localhost:9966'],
-        blacklistedRoutes: ['http://localhost:9966/api/v1/auth'],
+        whitelistedDomains: ['https://astanaitbotapi.herokuapp.com'],
+        blacklistedRoutes: ['https://astanaitbotapi.herokuapp.com/api/v1/auth'],
       },
     }),
   ],
