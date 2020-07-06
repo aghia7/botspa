@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { QuestionService } from '../_services/question.service';
 import { AlertifyService } from '../_services/alertify.service';
 import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-questions',
@@ -20,7 +21,8 @@ export class QuestionsComponent implements OnInit {
   }
 
   reloadData() {
-    this.questions = this.questionService.getQuestions();
+    this.questions = this.questionService.getQuestions()
+    .pipe(map(things => things.sort((a, b) => a.questionRus.localeCompare(b.questionRus))));
   }
 
   deleteQuestion(id: number) {
