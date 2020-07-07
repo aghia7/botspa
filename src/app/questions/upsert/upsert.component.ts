@@ -29,7 +29,7 @@ export class UpsertQuestionComponent implements OnInit {
   ngOnInit() {
     this.ready = false;
     this.question = new Question();
-
+    this.question.categoryId = null;
     this.question.id = this.route.snapshot.params.id;
     this.action = 'Create';
     if (this.question.id) {
