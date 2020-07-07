@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from 'src/app/_services/category.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { Observable } from 'rxjs';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-upsert',
@@ -31,7 +32,7 @@ export class UpsertComponent implements OnInit {
   ngOnInit() {
     this.ready = false;
     this.category = new Category();
-
+    this.category.parentId = null;
     this.category.id = this.route.snapshot.params.id;
     this.action = 'Create';
     if (this.category.id) {
